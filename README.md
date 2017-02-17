@@ -9,6 +9,19 @@ The problem with that is that brains and memory don't always work how you want t
 ## Cron
 Add the command that runs the query on your recent last.fm listens to your crontab. In Linux, you can do this by entering `crontab -e` into your terminal. I wrote a shell script called `get-music-cron.sh` to change directories into my current one (instead of the default home) and run the python script that queries last.fm. My crontab line to run this command every hour looks like
 ```
-* */1 * * * * . ~/Projects/artistQ/get-music-cron.sh
+0 * * * * * . ~/Projects/artistQ/get-music-cron.sh
 ```
 
+Next I will create a cronjob that will run daily in order to go through all of the music I've listened to that day, and add it to my monthly listens. 
+
+## TODO
+[] remove_stale_tracks
+[] add_artists_to_queue (new artist to add to the queue)
+[] push_artist_to_bottom (artist in the queue recently played again)
+[] clear out daily.csv
+
+
+### Issues:
+[] Instead of taking music from the last hour on the cronjob, I should get it from up to the last time I pulled music - What if I shut off my computer for several hours after listening to some gr8 jams?
+[] "Re: Stacks" is a song. And I'm splitting my artists from tracks on colons. LOL
+[] There should be more entries in artists.csv - investigate that

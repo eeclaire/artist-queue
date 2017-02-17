@@ -3,15 +3,31 @@
 import json
 import requests
 import time
+import os.path
 from keys import *
 
 
-def get_artists_from_tracks(tracks):
+# TODO: Add to a local artists storage that is cleaned up once a week
+def save_tracks_to_daily(tracks):
     """Get the artists and their frequency from recent songs."""
-    artist_dict = {}
+    track_list = []
     for track in tracks:
-        print("artist: %s \t\t song: %s" % (
-            track["artist"]["#text"], track["name"]))
+        track_artist = track["artist"]["#text"]
+        track_name = track["name"]
+        track_list.append((track_artist, track_name))
+
+    daily_tracks_filename = 'daily.csv'
+
+    # Add these tracks to the daily track list
+    if os.path.isfile(daily_tracks_filename):
+        with open(daily_tracks_filename, 'a+') as fileout:
+            for track in track_list:
+                fileout.write('{"%s": "%s"}\n' % (track[0], track[1]))
+
+    else:
+        with open(daily_tracks_filename, 'w') as fileout:
+            for track in track_list:
+                fileout.write('{"%s": "%s"}\n' % (track[0], track[1]))
 
 
 def get_tracks_since_last_time(last_time=None):
