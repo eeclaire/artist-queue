@@ -24,4 +24,3 @@ Next I will create a cronjob that will run daily in order to go through all of t
 ### Issues:
 [] Instead of taking music from the last hour on the cronjob, I should get it from up to the last time I pulled music - What if I shut off my computer for several hours after listening to some gr8 jams?
 [] "Re: Stacks" is a song. And I'm splitting my artists from tracks on colons. LOL
-[] There should be more entries in artists.csv - investigate that

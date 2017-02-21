@@ -1,751 +1,762 @@
 {
     "Anderson .Paak": {
-        "playcount": 5,
+        "playcount": 10,
         "unique_songs": {
             "Room in Here (feat. The Game & Sonyae Elise)": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Water Fall (Interluuube)": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Your Prime": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             }
         }
     },
     "Arctic Monkeys": {
-        "playcount": 2,
+        "playcount": 5,
         "unique_songs": {
+            "Snap Out of It": {
+                "most_recent_play": {
+                    "day": 17,
+                    "month": 2
+                },
+                "playcount": 1
+            },
             "Why'd You Only Call Me When You're High?": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             }
         }
     },
     "Bon Iver": {
-        "playcount": 21,
+        "playcount": 42,
         "unique_songs": {
             "Blindsided": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Creature Fear": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Flume": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "For Emma": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Lump Sum": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 3
+                "playcount": 6
             },
             "Re": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Skinny Love": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Team (for Emma, Forever Ago Hq)": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "The Wolves": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Wisconsin": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             }
         }
     },
     "Cat Power": {
-        "playcount": 28,
+        "playcount": 56,
         "unique_songs": {
             "3,6,9": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Always on My Own": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Cherokee": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Human Being": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Lived in Bars": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Manhattan": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 5
+                "playcount": 10
             },
             "Nothin But Time": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Peace and Love": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 3
+                "playcount": 6
             },
             "Real Life": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Ruin (\"SUN\" ANNOUNCEMENT)": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Silent Machine": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Sun": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             }
         }
     },
     "Courtney Barnett": {
-        "playcount": 6,
+        "playcount": 12,
         "unique_songs": {
             "Avant Gardener": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Depreston": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Pedestrian at Best": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             }
         }
     },
     "Glass Animals": {
-        "playcount": 6,
+        "playcount": 12,
         "unique_songs": {
             "Black Mambo": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Hazey": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Pools": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             }
         }
     },
     "Instant Karma": {
-        "playcount": 1,
+        "playcount": 2,
         "unique_songs": {
             "John Lennon": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             }
         }
     },
     "John Lennon": {
-        "playcount": 2,
+        "playcount": 4,
         "unique_songs": {
             "Nobody Told Me [Remastered]": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Strawberry Fields Forever (Rare Acoustic)": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             }
         }
     },
     "Kishi Bashi": {
-        "playcount": 13,
+        "playcount": 26,
         "unique_songs": {
             "Bittersweet Genesis for Him and Her": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Carry On Phenomenon": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Debut Impromptu": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Ha Ha Pt. 2": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Ha Ha Pt.1": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Impromptu No. 1": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "In Fantasia": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Once Upon a Lucid Dream (in Afrikaans)": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "PHILOSOPHIZE IN IT! CHEMICALIZE WITH IT": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Q&A": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "The Ballad of Mr. Steak": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             }
         }
     },
     "Nada Surf": {
-        "playcount": 13,
+        "playcount": 26,
         "unique_songs": {
             "Always Love": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Are You Lightning?": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "From Now On": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Here Goes Something": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "I Like What You Say": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 3
+                "playcount": 6
             },
             "Weightless": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             }
         }
     },
     "Nada Surf,": {
-        "playcount": 4,
+        "playcount": 8,
         "unique_songs": {
             "Beautiful Beat": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "See These Bones": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             }
         }
     },
     "SBTRKT": {
-        "playcount": 3,
+        "playcount": 6,
         "unique_songs": {
             "Hold On (feat. Sampha)": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Right Thing To Do ft. Jessie Ware": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
-            "The Light (feat. Denai Moore)\"}{\"Kishi Bashi": {
+            "The Light (feat. Denai Moore)": {
                 "most_recent_play": {
                     "day": 17,
-                    "month": 2
+                    "month": 2 
                 },
-                "playcount": 1
+                "playcount": 2
             }
         }
     },
-    "Strawberry Fields Forever": {
+    "Stale Artist": {
         "playcount": 5,
+        "unique_songs": {}
+    },
+    "Strawberry Fields Forever": {
+        "playcount": 10,
         "unique_songs": {
             "Restored": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 5
+                "playcount": 10
             }
         }
     },
     "Sylvan Esso": {
-        "playcount": 12,
+        "playcount": 24,
         "unique_songs": {
             "Coffee": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Come Down": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Could I Be": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Hey Mami": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 4
+                "playcount": 8
             },
             "Uncatena": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             }
         }
     },
     "The Beatles": {
-        "playcount": 25,
+        "playcount": 50,
         "unique_songs": {
             "A Day in the Life": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 4
+                "playcount": 8
             },
             "Dear Prudence": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Don't Let Me Down": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Hello Goodbye": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Help!": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Here Comes the Sun (Lyrics)": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Hey Jude": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "I'm a Loser": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Penny Lane": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Revolution": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 4
+                "playcount": 8
             },
             "She Loves You (1963": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             }
         }
     },
     "Vampire Weekend": {
-        "playcount": 23,
+        "playcount": 46,
         "unique_songs": {
             "Cape Cod Kwassa Kwassa": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Cousins": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 3
+                "playcount": 6
             },
             "Diane Young": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Diplomats Son": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Diplomat\u2019s Son": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Everlasting Arms": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Finger Back": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Giving up the Gun": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Hannah Hunt": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Holiday": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 2
+                "playcount": 4
             },
             "Horchata": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "M79": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "One (Blakes Got a New Face)": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Ottoman": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Oxford Comma": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Run": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Step (Official Lyrics)": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Taxi Cab": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "White Sky": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             },
             "Worship You": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             }
         }
     },
     "working class hero": {
-        "playcount": 1,
+        "playcount": 2,
         "unique_songs": {
             "John Lennon": {
                 "most_recent_play": {
                     "day": 17,
                     "month": 2
                 },
-                "playcount": 1
+                "playcount": 2
             }
         }
     }

@@ -23,10 +23,37 @@ def main():
 
     tracks_dict = read_todays_tracks(new_artists_set)
     monthly_tracks = add_todays_tracks(tracks_dict, monthly_tracks)
+    monthly_tracks = remove_stale_tracks(monthly_tracks)
 
     with open(monthly_track_file, 'w') as fp:
         json.dump(monthly_tracks, fp, sort_keys=True, indent=4)
     fp.close()
+
+
+def remove_stale_tracks(monthly_tracks):
+    """Remove songs that are more than a month old."""
+    date = time.struct_time(time.gmtime(time.time()))
+    month = date[1]
+    today = date[2]
+
+    to_remove = []  # list of (artist, song, playcounts) tuples to remove from monthly
+
+    # Check which songs need to be removed
+    for artist in monthly_tracks:
+        for song_name in monthly_tracks[artist]['unique_songs']:
+            song = monthly_tracks[artist]['unique_songs'][song_name]
+            if month - song['most_recent_play']['month'] > 1 or (
+                month - song['most_recent_play']['month'] < 0) or (
+                month - song['most_recent_play']['month'] == 1 and
+                today - song['most_recent_play']['day'] >= 0):
+                to_remove.append((artist, song_name, song['playcount']))
+
+    # Actually remove them AND DECREMENT PLAYCOUNT APPROPRIATELY
+    for artist, song, playcount in to_remove:
+        del monthly_tracks[artist]['unique_songs'][song]
+        monthly_tracks[artist]['playcount'] = monthly_tracks[artist]['playcount'] - playcount
+
+    return monthly_tracks
 
 
 def update_artist_set(monthly_tracks, artists_set):
