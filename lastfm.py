@@ -24,13 +24,13 @@ def save_tracks_to_daily(tracks):
         track_artist = track["artist"]["#text"]
         track_name = track["name"]
 
-        cur.execute("select artist from confirmed_artists where artist like '%s'", [track_name.replace("'", "''"))
+        cur.execute("select artist from confirmed_artists where artist like %s", [track_name.replace("'", "'")])
         if cur.fetchone() is not None:
             track_artist = track['name']
             track_name = track['artist']['#text']
 
         cur.execute("insert into scrobbles (artist, song, scrobble_date) " +
-            "values ('%s', '%s', now())", [track_artist.replace("'", "''"), track_name.replace("'", "''")])
+            "values (%s, %s, now())", [track_artist.replace("'", "'"), track_name.replace("'", "'")])
 
     # Make changes to the db and close communications
     conn.commit()

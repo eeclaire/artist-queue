@@ -31,28 +31,29 @@ def add_frequently_played_artists_to_queue():
                    where l.artist = r.artist
                    and l.id < r.id""")
 
+    # Make the changes persistent in the database and end communications
     conn.commit()
     cur.close()
     conn.close()
 
 
-def update_artist_set(monthly_tracks, artists_set):
+def update_artist_set():
     """Look at monthly tracks and add artists with more than 2 unique songs."""
-    for artist in monthly_tracks.keys():
-        if len(monthly_tracks[artist]['unique_songs']) > 2:
-            artists_set.add(artist)
+    conn = psycopg2.connect("dbname=artistqdb host=localhost user=postgres")
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-    return artists_set
+    cur.execute("""insert into confirmed_artists (artist)
+                   select artist
+                   from scrobbles
+                   group by artist
+                   having count(distinct song) > 2""")
+    # TODO: Figure out how to not insert duplicates (like, "where not exists")
 
-
-def read_artist_set():
-    """Read in list of confirmed artists."""
-    artists = set()
-    with open('artists.csv', 'r') as fp:
-        for line in fp:
-            artists.add(line.strip('\n'))
-    fp.close()
-    return(artists)
+    # Remove any duplicates
+    cur.execute("""delete from confirmed_artists as l
+                   using confirmed_artists as r
+                   where l.artist = r.artist
+                   and l.id > r.id""")
 
 
 if __name__ == "__main__":
