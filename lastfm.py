@@ -4,30 +4,38 @@ import json
 import requests
 import time
 import os.path
+import psycopg2
 from keys import *
 
 
-# TODO: Add to a local artists storage that is cleaned up once a week
 def save_tracks_to_daily(tracks):
     """Get the artists and their frequency from recent songs."""
+
+    # Connect to existing postgres db
+    conn = psycopg2.connect("dbname=artistqdb host=localhost user=postgres")
+
+    # Set up cursor to perform db operations
+    cur = conn.cursor()
+
+    # Check that artist exists in confirmed_artists table
     track_list = []
     for track in tracks:
+
         track_artist = track["artist"]["#text"]
         track_name = track["name"]
-        track_list.append((track_artist, track_name))
 
-    daily_tracks_filename = 'daily.csv'
+        cur.execute("select artist from confirmed_artists where artist like '%s'" % (track_name.replace("'", "''")))
+        if cur.fetchone() is not None:
+            track_artist = track['name']
+            track_name = track['artist']['#text']
 
-    # Add these tracks to the daily track list
-    if os.path.isfile(daily_tracks_filename):
-        with open(daily_tracks_filename, 'a+') as fileout:
-            for track in track_list:
-                fileout.write('{"%s": "%s"}\n' % (track[0], track[1]))
+        cur.execute("insert into scrobbles (artist, song, scrobble_date) " +
+            "values ('%s', '%s', now())" % (track_artist.replace("'", "''"), track_name.replace("'", "''")))
 
-    else:
-        with open(daily_tracks_filename, 'w') as fileout:
-            for track in track_list:
-                fileout.write('{"%s": "%s"}\n' % (track[0], track[1]))
+    # Make changes to the db and close communications
+    conn.commit()
+    cur.close()
+    conn.close()
 
 
 def get_tracks_since_last_time(last_time=None):
@@ -50,11 +58,20 @@ def get_tracks_since_last_time(last_time=None):
     return(tracks)
 
 
-def get_most_recent_track_time(tracks):
+def get_most_recent_track_time():
     """Get the time of the most recently scrobbled track."""
-    if tracks[0].get("date") is not None:
-        most_recent_time = tracks[0]["date"]["uts"]
-    else:
-        most_recent_time = time.time()
 
-    return(most_recent_time)
+    # Connect to existing postgres db
+    conn = psycopg2.connect("dbname=artistqdb host=localhost user=postgres")
+
+    # Set up cursor to perform db operations
+    cur = conn.cursor()
+
+    cur.execute("select scrobble_date from scrobbles order by scrobble_date desc")
+    most_recent_push_time = cur.fetchone())
+
+    # Make changes to the db and close communications
+    cur.close()
+    conn.close()
+
+    return(most_recent_push_time)

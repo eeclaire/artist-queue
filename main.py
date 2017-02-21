@@ -6,8 +6,10 @@ import time
 
 def main():
     """Main."""
-    tracks = get_tracks_since_last_time(time.time() - 3600)
-    most_recent_time = get_most_recent_track_time(tracks)
+    most_recent_time = get_most_recent_track_time()
+    # TODO: Convert datetime to epoch before passing to get_tracks
+
+    tracks = get_tracks_since_last_time()
     #print(json.dumps(tracks, sort_keys=True, indent=4))
     #print("number of tracks: %s" % len(tracks))
     save_tracks_to_daily(tracks)
