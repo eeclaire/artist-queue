@@ -24,13 +24,13 @@ def save_tracks_to_daily(tracks):
         track_artist = track["artist"]["#text"]
         track_name = track["name"]
 
-        cur.execute("select artist from confirmed_artists where artist like '%s'" % (track_name.replace("'", "''")))
+        cur.execute("select artist from confirmed_artists where artist like '%s'", [track_name.replace("'", "''"))
         if cur.fetchone() is not None:
             track_artist = track['name']
             track_name = track['artist']['#text']
 
         cur.execute("insert into scrobbles (artist, song, scrobble_date) " +
-            "values ('%s', '%s', now())" % (track_artist.replace("'", "''"), track_name.replace("'", "''")))
+            "values ('%s', '%s', now())", [track_artist.replace("'", "''"), track_name.replace("'", "''")])
 
     # Make changes to the db and close communications
     conn.commit()
@@ -39,7 +39,7 @@ def save_tracks_to_daily(tracks):
 
 
 def get_tracks_since_last_time(last_time=None):
-    """Get the tracks played since the specified time."""
+    """Query lastfm for the tracks played since the specified time."""
     user = 'eeclaire'
     base_url = 'http://ws.audioscrobbler.com/2.0/'
     method = '?method=user.getrecenttracks'
@@ -61,16 +61,13 @@ def get_tracks_since_last_time(last_time=None):
 def get_most_recent_track_time():
     """Get the time of the most recently scrobbled track."""
 
-    # Connect to existing postgres db
+    # Connect to existing postgres db and set up cursor
     conn = psycopg2.connect("dbname=artistqdb host=localhost user=postgres")
-
-    # Set up cursor to perform db operations
     cur = conn.cursor()
 
     cur.execute("select scrobble_date from scrobbles order by scrobble_date desc")
     result = cur.fetchone()
-    print(result)
-    most_recent_push_time = result[0]   # fucking tuples
+    most_recent_push_time = result[0]
 
     # Make changes to the db and close communications
     cur.close()

@@ -2,58 +2,38 @@
 
 import json
 import time
+import psycopg2
+import psycopg2.extras
 
 
 def main():
     """Main."""
-    monthly_track_file = 'monthly.json'
-
-    with open(monthly_track_file, 'r') as fp:
-        monthly_tracks = json.load(fp)
-    fp.close()
-
-    # Update the artists
-    artists = read_artist_set()
-    new_artists_set = update_artist_set(monthly_tracks, artists)
-
-    with open('artists.csv', 'w') as fp:
-        for artist in new_artists_set:
-            fp.write("%s\n" % artist)
-    fp.close()
-
-    tracks_dict = read_todays_tracks(new_artists_set)
-    monthly_tracks = add_todays_tracks(tracks_dict, monthly_tracks)
-    monthly_tracks = remove_stale_tracks(monthly_tracks)
-
-    with open(monthly_track_file, 'w') as fp:
-        json.dump(monthly_tracks, fp, sort_keys=True, indent=4)
-    fp.close()
+    add_frequently_played_artists_to_queue()
 
 
-def remove_stale_tracks(monthly_tracks):
-    """Remove songs that are more than a month old."""
-    date = time.struct_time(time.gmtime(time.time()))
-    month = date[1]
-    today = date[2]
+def add_frequently_played_artists_to_queue():
+    """Add artists whose music has been scrobbled often."""
+    conn = psycopg2.connect("dbname=artistqdb host=localhost user=postgres")
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-    to_remove = []  # list of (artist, song, playcounts) tuples to remove from monthly
+    cur.execute("""insert into artist_queue (artist, last_scrobble_date)
+                   SELECT artist,
+                          max(scrobble_date)
+                   from scrobbles
+                   where scrobble_date>now()-interval '30' day
+                   GROUP BY artist
+                   having count(*) >10
+                   and count(distinct song) > 8""")
 
-    # Check which songs need to be removed
-    for artist in monthly_tracks:
-        for song_name in monthly_tracks[artist]['unique_songs']:
-            song = monthly_tracks[artist]['unique_songs'][song_name]
-            if month - song['most_recent_play']['month'] > 1 or (
-                month - song['most_recent_play']['month'] < 0) or (
-                month - song['most_recent_play']['month'] == 1 and
-                today - song['most_recent_play']['day'] >= 0):
-                to_remove.append((artist, song_name, song['playcount']))
+    # Delete any older duplicates
+    cur.execute("""delete from artist_queue as l
+                   using artist_queue as r
+                   where l.artist = r.artist
+                   and l.id < r.id""")
 
-    # Actually remove them AND DECREMENT PLAYCOUNT APPROPRIATELY
-    for artist, song, playcount in to_remove:
-        del monthly_tracks[artist]['unique_songs'][song]
-        monthly_tracks[artist]['playcount'] = monthly_tracks[artist]['playcount'] - playcount
-
-    return monthly_tracks
+    conn.commit()
+    cur.close()
+    conn.close()
 
 
 def update_artist_set(monthly_tracks, artists_set):
@@ -73,100 +53,6 @@ def read_artist_set():
             artists.add(line.strip('\n'))
     fp.close()
     return(artists)
-
-
-def read_todays_tracks(artists):
-    """Read in today's tracks and re-format for future use."""
-    lines = []
-    with open('daily.csv', 'r') as fp:
-        for line in fp:
-            lines.append(clean_up_track(line, artists))
-    fp.close()
-
-    return lines
-
-
-def clean_up_track(line, artists):
-    """Turn each track line read in into a dict with artist, song, date."""
-    line = line.strip('\n{}')
-    artist_song = line.split(': ')
-    artist = artist_song[0].strip('"')
-    song = artist_song[1].strip('"')
-
-    # Make sure the song name and artist weren't switched
-    if song in artists:
-        artist_song_dict = {'artist': song, 'song': artist}
-    else:
-        artist_song_dict = {'artist': artist, 'song': song}
-
-    return artist_song_dict
-
-
-def add_todays_tracks(todays_tracks_dict, tracks):
-    """Add new tracks to the monthly file."""
-    date = time.struct_time(time.gmtime(time.time()))
-    month = date[1]
-    today = date[2]
-
-    for track in todays_tracks_dict:
-        artist = track['artist']
-        song = track['song']
-
-        # If you already have that artist
-        if tracks.get(artist) is not None:
-            # Check if you have the song, if you do, update it
-            if tracks[artist]['unique_songs'].get(song) is not None:
-                # Increment playcounts
-                tracks[artist]['playcount'] = tracks[artist]['playcount'] + 1
-                new_cnt = tracks[artist]['unique_songs'][song]['playcount'] + 1
-                tracks[artist]['unique_songs'][song]['playcount'] = new_cnt
-                # Update the most recent date
-                tracks[artist]['unique_songs'][song]['most_recent_play']['month'] = month
-                tracks[artist]['unique_songs'][song]['most_recent_play']['day'] = today
-            else:
-                tracks[artist]['playcount'] = tracks[artist]['playcount'] + 1
-                tracks[artist]['unique_songs'][song] = {
-                    'playcount': 1,
-                    'most_recent_play': {
-                        'month': month,
-                        'day': today
-                    }
-                }
-        else:
-            # New artist - initialize
-            tracks[artist] = {
-                'playcount': 1,
-                'unique_songs': {
-                    song: {
-                        'playcount': 1,
-                        'most_recent_play': {
-                            'month': month,
-                            'day': today
-                        }
-                    }
-
-                }
-            }
-
-    return tracks
-
-
-def remove_old_tracks():
-    """Read in the whole monthly.json and removes old tracks."""
-    print("remove old")
-
-
-def add_tracks_to_biweekly_cache(tracks_dict):
-    """Insert artists+song count into dictionary cleaned every 2 weeks."""
-    biweekly_cache_filename = 'biweekly.json'
-
-    # get current songs in the biweekly store if they exist
-    if os.path.isfile(biweekly_cache_filename):
-        with open(biweekly_cache_filename, 'r') as filein:
-            tracks = json.load(filein)
-    else:
-        tracks = {}
-    print(tracks)
 
 
 if __name__ == "__main__":
