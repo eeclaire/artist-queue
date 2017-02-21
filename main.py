@@ -7,11 +7,9 @@ import time
 def main():
     """Main."""
     most_recent_time = get_most_recent_track_time()
-    # TODO: Convert datetime to epoch before passing to get_tracks
+    posix_time = most_recent_time.timestamp()   # convert datetime to posix
 
-    tracks = get_tracks_since_last_time()
-    #print(json.dumps(tracks, sort_keys=True, indent=4))
-    #print("number of tracks: %s" % len(tracks))
+    tracks = get_tracks_since_last_time(posix_time)
     save_tracks_to_daily(tracks)
 
 

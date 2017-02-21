@@ -68,7 +68,9 @@ def get_most_recent_track_time():
     cur = conn.cursor()
 
     cur.execute("select scrobble_date from scrobbles order by scrobble_date desc")
-    most_recent_push_time = cur.fetchone())
+    result = cur.fetchone()
+    print(result)
+    most_recent_push_time = result[0]   # fucking tuples
 
     # Make changes to the db and close communications
     cur.close()
