@@ -1,7 +1,5 @@
-"""Handle saving and reading to and from the biweekly json and the queue."""
+"""Script to run daily to maintain the postgres arist queue and artist set."""
 
-import json
-import time
 import psycopg2
 import psycopg2.extras
 
@@ -18,18 +16,21 @@ def add_frequently_played_artists_to_queue():
     conn = psycopg2.connect("dbname=artistqdb host=localhost user=postgres")
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
+    # Determine whether I like an artist enough to add them to my artist queue
+    # Heads up, the rules used here are pretty arbitrary
     cur.execute("""insert into artist_queue (artist, last_scrobble_date)
                    SELECT artist,
                           max(scrobble_date)
                    from scrobbles
                    where scrobble_date>now()-interval '30' day
                    GROUP BY artist
-                   having count(*) > 15
-                   and count(distinct song) > 10""")
+                   (having count(*) > 15
+                   and count(distinct song) > 10)
+                   or (count(distinct song) > 30)""")
 
     # Delete any older duplicates
     cur.execute("""delete from artist_queue as l
-                   using artist_queue as r
+    using artist_queue as r
                    where l.artist = r.artist
                    and l.id < r.id""")
 
