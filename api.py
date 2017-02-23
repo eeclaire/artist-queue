@@ -7,7 +7,27 @@ import psycopg2.extras
 
 def main():
     """Main."""
-    get_least_recently_played_artists()
+    action = 's'
+    while(action != 'q'):
+        print("Artist Queue Menu:")
+        print("\tg - get artists you haven't listened to in a while")
+        print("\tq - get out")
+        action = input('> ')
+        print()
+
+        if action == 'q':
+            print("Bye then")
+        elif action == 'g':
+            print("How many artists would you like to be reminded of?")
+            n = input('> ')
+            print()
+            print("""\tHere are your %s artists:""" % n)
+            get_least_recently_played_artists(int(n))
+            print()
+        else:
+            print("Hmmm, something seems to have gone awry. Please enter one of the menu options:")
+            print()
+            action = 's'
 
 
 def get_least_recently_played_artists(n=5):
@@ -22,9 +42,8 @@ def get_least_recently_played_artists(n=5):
 
     data = cur.fetchall()
     for row in data:
-        print("""You haven't listened to %s since %s"""
+        print("""- %s \t(last listen: %s)"""
               % (row['artist'], row['last_scrobble_date']))
-        print(type(row['last_scrobble_date']))
 
 
 if __name__ == "__main__":

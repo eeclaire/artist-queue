@@ -24,7 +24,7 @@ def add_frequently_played_artists_to_queue():
                    from scrobbles
                    where scrobble_date>now()-interval '30' day
                    GROUP BY artist
-                   (having count(*) > 15
+                   having (count(*) > 15
                    and count(distinct song) > 10)
                    or (count(distinct song) > 30)""")
 
