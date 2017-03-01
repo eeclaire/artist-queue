@@ -4,7 +4,7 @@ import psycopg2
 import psycopg2.extras
 
 
-def main():
+def daily_main():
     """Main."""
     add_frequently_played_artists_to_queue()
     move_recent_srobbles_artist_down_queue()
@@ -30,7 +30,7 @@ def add_frequently_played_artists_to_queue():
 
     # Delete any older duplicates
     cur.execute("""delete from artist_queue as l
-    using artist_queue as r
+                   using artist_queue as r
                    where l.artist = r.artist
                    and l.id < r.id""")
 
@@ -87,4 +87,4 @@ def update_artist_set():
 
 
 if __name__ == "__main__":
-    main()
+    daily_main()

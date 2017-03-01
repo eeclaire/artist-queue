@@ -1,6 +1,6 @@
 # I hate new music
 
-I don't actually hate new music, but it _is_ harder for me to focus on work when I'm listening to something that isn't familiar. Either I dig it and I'm distracted by its cool novelty, or I don't like it and it doesn't put me in a produtive mood. Usually I just listen to bands that I already know, but sometimes that feels repetitive, and I end up stuck in a rut. 
+I don't actually hate new music, but it _is_ harder for me to focus on work when I'm listening to something that isn't familiar. Either I dig it and I'm distracted by its cool novelty, or I don't like it and it doesn't put me in a produtive mood. Usually I just listen to bands that I already know, but I often end up stuck in a rut, listening to the same 4 artists over and over. 
 
 The _real_ jackpot is when I remember a band or artist I loved several months ago, but that I'd since forgotten about. 
 
@@ -14,13 +14,9 @@ Add the command that runs the query on your recent last.fm listens to your cront
 
 Next I will create a cronjob that will run daily in order to go through all of the music I've listened to that day, and add it to my monthly listens. 
 
-## TODO
-[] remove_stale_tracks
-[] add_artists_to_queue (new artist to add to the queue)
-[] push_artist_to_bottom (artist in the queue recently played again)
-[] clear out daily.csv
+## How to use
+"But Claire" you might say, "this sounds cool and all, but how do _I_ do that?"  
+Luckily for you, a lot of 
 
 
-### Issues:
-[] Instead of taking music from the last hour on the cronjob, I should get it from up to the last time I pulled music - What if I shut off my computer for several hours after listening to some gr8 jams?
-[] "Re: Stacks" is a song. And I'm splitting my artists from tracks on colons. LOL
+

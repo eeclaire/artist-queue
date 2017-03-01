@@ -2,8 +2,7 @@
 
 import json
 import requests
-import time
-import psycopg2
+
 from keys import *
 
 
