@@ -8,12 +8,12 @@ The problem with that is that brains and memory don't always work how you want t
 
 
 ## Requirements
-If you want to use this, you're going to need to do a little setup first:
+If you want to use this, you're going to need to do a little setup first:  
 1. Make sure you have Python3. Because of time manipulations, this setup isn't backwards compatible.
 2. You're going to need to have a last.fm account. If you don't already have one, you can sign up [here](https://www.last.fm/join). _Make sure you switch the 'user' field in `lastfm.py` to *your* username._
 3. If you don't listen to music on last.fm directly, you're going to want to set yourself up to [scrobble](https://www.last.fm/about/trackmymusic) music to your account. This just means last.fm will capture songs you listen to on other mediums, like Spotify or Youtube, and list them in your last.fm music profile.
-..* If you're using Spotify, make sure you set up scrobbling for each platform you use to listen to Spotify (mobile, desktop, web, etc...). Last.fm has instructions for each platform [here](https://support.spotify.com/us/account_payment_help/account_settings/scrobble-to-last-fm/)
-..* YouTube doesn't officially support scrobbling, but there are some browser extensions that will scrobble music from YouTube to last.fm for you [listed here](https://getsatisfaction.com/lastfm/topics/youtube-scrobbling).
+	* If you're using Spotify, make sure you set up scrobbling for each platform you use to listen to Spotify (mobile, desktop, web, etc...). Last.fm has instructions for each platform [here](https://support.spotify.com/us/account_payment_help/account_settings/scrobble-to-last-fm/)
+	* YouTube doesn't officially support scrobbling, but there are some browser extensions that will scrobble music from YouTube to last.fm for you [listed here](https://getsatisfaction.com/lastfm/topics/youtube-scrobbling).
 4. You'll need to install PostgreSQL and the [psycopg2](https://pypi.python.org/pypi/psycopg2) library and setup up a few tables. I'll go into more detail on that [here](#PostgreSQL)
 5. [Set up a cron job](#Cron) that will run the `hourly-cron.sh` script every hour or so.
 
