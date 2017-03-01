@@ -45,14 +45,14 @@ def move_recent_srobbles_artist_down_queue():
     conn = psycopg2.connect("dbname=artistqdb host=localhost user=postgres")
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-    # Find artists in queue who were played in the last day
+    # Find artists in queue who were played yesterday
     # insert that artist with that most recent date in the queue
     cur.execute("""insert into artist_queue (artist, last_scrobble_date)
                    select s.artist,
                           max(s.scrobble_date)
                    from scrobbles s
                    join artist_queue q on s.artist = q.artist
-                   where s.scrobble_date>now()-interval '1' day
+                   where s.scrobble_date>now()-interval '2' day
                    group by s.artist""")
 
     # Delete any older duplicates
